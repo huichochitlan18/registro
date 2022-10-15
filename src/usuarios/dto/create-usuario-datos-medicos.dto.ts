@@ -1,59 +1,49 @@
 import { IsBoolean, IsIn, IsNumber, IsOptional, IsPositive, isString, IsString, MinLength } from "class-validator";
-import { UsuariosDatosContactoEmergencia } from "../entities";
-import { CreateUsuarioDatosMedicosDto } from "./create-usuario-datos-contacto.dto";
-import { CreateUsuarioDatosContactoDto } from './create-usuario-datos-medicos.dto';
 
-export class CreateUsuarioDto {
+export class CreateUsuarioDatosContactoDto {
 
     @IsString()
     @MinLength(1)
-    correo: string;
+    afiliacionMedica: string;
 
     @IsString()
     @MinLength(5)
     @IsOptional()
-    contrasena:string
+    alergias:string
 
     @IsString()
     @MinLength(1)
-    nombre:string;
+    padecimientos:string;
+
+    @IsNumber()
+    @IsPositive()
+    estatura:number;
+
+    @IsNumber()
+    @IsPositive()
+    peso:number;
 
     @IsString()
-    @MinLength(1)
-    apellidoPaterno:string;
+    @IsIn(['Tipo A','Tipo B','Tipo AB','Tipo O'])
+    tipoSangre:string;
 
-    @IsString()
-    @MinLength(1)
-    apellidoMaterno:string;
+    // @IsIn(['hombre','mujer'])
+    // sexo:string;
 
-    @IsString()
+    // @IsString()
     // @MinLength(1)
-    fechaNacimiento:string;
+    // curp:string;
 
-    @IsIn(['hombre','mujer'])
-    sexo:string;
+    // @IsIn(['activo','baja'])
+    // @IsOptional()
+    // estado?:string;
 
-    @IsString()
-    @MinLength(1)
-    curp:string;
+    // @IsIn(['admin','alumno','instructor'])
+    // @IsOptional()
+    // rol:string;
 
-    @IsIn(['activo','baja'])
-    @IsOptional()
-    estado?:string;
-
-    @IsIn(['admin','alumno','instructor'])
-    @IsOptional()
-    rol:string;
-
-    @IsOptional()
-    datosMedicos?: CreateUsuarioDatosMedicosDto
-
-    @IsOptional()
-    datosContacto?: CreateUsuarioDatosContactoDto
-
-    @IsOptional()
-    datosContactoEmergencia?: UsuariosDatosContactoEmergencia
-
+    // @IsOptional()
+    // datosMedicos?: UsuarioDatosMedicos
 
 
     // @IsNumber()

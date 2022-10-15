@@ -5,6 +5,7 @@ import { IsOptional, IsPositive, Min } from "class-validator";
 export class PaginationDto {
     @IsOptional()
     @IsPositive()
+    //transforma el tupo de dato de string a number
     @Type(()=>Number)
     limit?: number;
 
